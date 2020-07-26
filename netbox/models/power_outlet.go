@@ -360,7 +360,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletConnectionStatus) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletConnectionStatusTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletConnectionStatusTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -394,7 +394,7 @@ func init() {
 
 // prop value enum
 func (m *PowerOutletConnectionStatus) validateValueEnum(path, location string, value bool) error {
-	if err := validate.Enum(path, location, value, powerOutletConnectionStatusTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletConnectionStatusTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -492,7 +492,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletFeedLeg) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletFeedLegTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletFeedLegTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -538,7 +538,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletFeedLeg) validateValueEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletFeedLegTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletFeedLegTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -777,7 +777,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletType) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletTypeTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletTypeTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -964,7 +964,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletType) validateValueEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletTypeTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletTypeTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil

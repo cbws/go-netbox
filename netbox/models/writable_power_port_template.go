@@ -324,7 +324,7 @@ const (
 
 // prop value enum
 func (m *WritablePowerPortTemplate) validateTypeEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, writablePowerPortTemplateTypeTypePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, writablePowerPortTemplateTypeTypePropEnum, true); err != nil {
 		return err
 	}
 	return nil

@@ -255,7 +255,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletTemplateFeedLeg) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletTemplateFeedLegTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletTemplateFeedLegTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -301,7 +301,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletTemplateFeedLeg) validateValueEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletTemplateFeedLegTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletTemplateFeedLegTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -540,7 +540,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletTemplateType) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletTemplateTypeTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletTemplateTypeTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -727,7 +727,7 @@ const (
 
 // prop value enum
 func (m *PowerOutletTemplateType) validateValueEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerOutletTemplateTypeTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerOutletTemplateTypeTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil

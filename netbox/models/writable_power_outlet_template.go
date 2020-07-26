@@ -123,7 +123,7 @@ const (
 
 // prop value enum
 func (m *WritablePowerOutletTemplate) validateFeedLegEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, writablePowerOutletTemplateTypeFeedLegPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, writablePowerOutletTemplateTypeFeedLegPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -327,7 +327,7 @@ const (
 
 // prop value enum
 func (m *WritablePowerOutletTemplate) validateTypeEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, writablePowerOutletTemplateTypeTypePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, writablePowerOutletTemplateTypeTypePropEnum, true); err != nil {
 		return err
 	}
 	return nil

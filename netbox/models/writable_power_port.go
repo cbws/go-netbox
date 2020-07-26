@@ -191,7 +191,7 @@ func init() {
 
 // prop value enum
 func (m *WritablePowerPort) validateConnectionStatusEnum(path, location string, value bool) error {
-	if err := validate.Enum(path, location, value, writablePowerPortTypeConnectionStatusPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, writablePowerPortTypeConnectionStatusPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -451,7 +451,7 @@ const (
 
 // prop value enum
 func (m *WritablePowerPort) validateTypeEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, writablePowerPortTypeTypePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, writablePowerPortTypeTypePropEnum, true); err != nil {
 		return err
 	}
 	return nil

@@ -366,7 +366,7 @@ const (
 
 // prop value enum
 func (m *PowerPortConnectionStatus) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerPortConnectionStatusTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerPortConnectionStatusTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -400,7 +400,7 @@ func init() {
 
 // prop value enum
 func (m *PowerPortConnectionStatus) validateValueEnum(path, location string, value bool) error {
-	if err := validate.Enum(path, location, value, powerPortConnectionStatusTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerPortConnectionStatusTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -639,7 +639,7 @@ const (
 
 // prop value enum
 func (m *PowerPortType) validateLabelEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerPortTypeTypeLabelPropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerPortTypeTypeLabelPropEnum, true); err != nil {
 		return err
 	}
 	return nil
@@ -826,7 +826,7 @@ const (
 
 // prop value enum
 func (m *PowerPortType) validateValueEnum(path, location string, value string) error {
-	if err := validate.Enum(path, location, value, powerPortTypeTypeValuePropEnum); err != nil {
+	if err := validate.EnumCase(path, location, value, powerPortTypeTypeValuePropEnum, true); err != nil {
 		return err
 	}
 	return nil

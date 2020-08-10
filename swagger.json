@@ -22608,10 +22608,7 @@
           "200": {
             "description": "",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AvailablePrefix"
-              }
+              "$ref": "#/definitions/AvailablePrefix"
             }
           }
         },

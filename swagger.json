@@ -22600,7 +22600,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WritablePrefix"
+              "$ref": "#/definitions/WritableAvailablePrefix"
             }
           }
         ],
@@ -39228,6 +39228,35 @@
         },
         "vrf": {
           "$ref": "#/definitions/NestedVRF"
+        }
+      }
+    },
+    "WritableAvailablePrefix": {
+      "type": "object",
+      "required": [
+        "prefix_length"
+      ],
+      "properties": {
+        "prefix_length": {
+          "title": "Prefix length",
+          "type": "integer"
+        },
+        "is_pool": {
+          "title": "Is a pool",
+          "description": "All IP addresses within this prefix are considered usable",
+          "type": "boolean"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "maxLength": 200
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       }
     },

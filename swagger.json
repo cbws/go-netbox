@@ -39197,7 +39197,27 @@
         },
         "family": {
           "title": "Family",
-          "type": "integer",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "enum": [
+                "IPv4",
+                "IPv6"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "enum": [
+                4,
+                6
+              ]
+            }
+          },
           "readOnly": true
         },
         "address": {
@@ -39221,7 +39241,27 @@
         },
         "family": {
           "title": "Family",
-          "type": "integer",
+          "required": [
+            "label",
+            "value"
+          ],
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "enum": [
+                "IPv4",
+                "IPv6"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "enum": [
+                4,
+                6
+              ]
+            }
+          },
           "readOnly": true
         },
         "prefix": {

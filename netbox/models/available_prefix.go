@@ -21,6 +21,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -32,9 +34,8 @@ import (
 // swagger:model AvailablePrefix
 type AvailablePrefix struct {
 
-	// Family
-	// Read Only: true
-	Family int64 `json:"family,omitempty"`
+	// family
+	Family *AvailablePrefixFamily `json:"family,omitempty"`
 
 	// ID
 	// Read Only: true
@@ -53,6 +54,10 @@ type AvailablePrefix struct {
 func (m *AvailablePrefix) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateFamily(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePrefix(formats); err != nil {
 		res = append(res, err)
 	}
@@ -64,6 +69,24 @@ func (m *AvailablePrefix) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AvailablePrefix) validateFamily(formats strfmt.Registry) error {
+
+	if swag.IsZero(m.Family) { // not required
+		return nil
+	}
+
+	if m.Family != nil {
+		if err := m.Family.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("family")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -109,6 +132,135 @@ func (m *AvailablePrefix) MarshalBinary() ([]byte, error) {
 // UnmarshalBinary interface implementation
 func (m *AvailablePrefix) UnmarshalBinary(b []byte) error {
 	var res AvailablePrefix
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*m = res
+	return nil
+}
+
+// AvailablePrefixFamily Family
+//
+// swagger:model AvailablePrefixFamily
+type AvailablePrefixFamily struct {
+
+	// label
+	// Required: true
+	// Enum: [IPv4 IPv6]
+	Label *string `json:"label"`
+
+	// value
+	// Required: true
+	// Enum: [4 6]
+	Value *int64 `json:"value"`
+}
+
+// Validate validates this available prefix family
+func (m *AvailablePrefixFamily) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateLabel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateValue(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+var availablePrefixFamilyTypeLabelPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["IPv4","IPv6"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		availablePrefixFamilyTypeLabelPropEnum = append(availablePrefixFamilyTypeLabelPropEnum, v)
+	}
+}
+
+const (
+
+	// AvailablePrefixFamilyLabelIPV4 captures enum value "IPv4"
+	AvailablePrefixFamilyLabelIPV4 string = "IPv4"
+
+	// AvailablePrefixFamilyLabelIPV6 captures enum value "IPv6"
+	AvailablePrefixFamilyLabelIPV6 string = "IPv6"
+)
+
+// prop value enum
+func (m *AvailablePrefixFamily) validateLabelEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, availablePrefixFamilyTypeLabelPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AvailablePrefixFamily) validateLabel(formats strfmt.Registry) error {
+
+	if err := validate.Required("family"+"."+"label", "body", m.Label); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateLabelEnum("family"+"."+"label", "body", *m.Label); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var availablePrefixFamilyTypeValuePropEnum []interface{}
+
+func init() {
+	var res []int64
+	if err := json.Unmarshal([]byte(`[4,6]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		availablePrefixFamilyTypeValuePropEnum = append(availablePrefixFamilyTypeValuePropEnum, v)
+	}
+}
+
+// prop value enum
+func (m *AvailablePrefixFamily) validateValueEnum(path, location string, value int64) error {
+	if err := validate.EnumCase(path, location, value, availablePrefixFamilyTypeValuePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AvailablePrefixFamily) validateValue(formats strfmt.Registry) error {
+
+	if err := validate.Required("family"+"."+"value", "body", m.Value); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateValueEnum("family"+"."+"value", "body", *m.Value); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (m *AvailablePrefixFamily) MarshalBinary() ([]byte, error) {
+	if m == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(m)
+}
+
+// UnmarshalBinary interface implementation
+func (m *AvailablePrefixFamily) UnmarshalBinary(b []byte) error {
+	var res AvailablePrefixFamily
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

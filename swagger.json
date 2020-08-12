@@ -22545,7 +22545,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/AvailableIP"
@@ -22602,7 +22602,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/AvailablePrefix"

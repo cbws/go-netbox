@@ -41,6 +41,10 @@ type AvailableIP struct {
 	// Read Only: true
 	Family int64 `json:"family,omitempty"`
 
+	// ID
+	// Read Only: true
+	ID int64 `json:"id,omitempty"`
+
 	// vrf
 	Vrf *NestedVRF `json:"vrf,omitempty"`
 }
